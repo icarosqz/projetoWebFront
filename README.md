@@ -1,5 +1,5 @@
 ## Galeria de Imagens
-
+### Esqueci da página de datalhes do produto e outras, mas estão no front
 <table>
   <tr>
     <td><img src="imagens/1.png" width="400"/></td>
