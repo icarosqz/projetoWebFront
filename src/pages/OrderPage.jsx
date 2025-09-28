@@ -1,9 +1,9 @@
-// src/pages/OrderPage.jsx
+
 import { useState, useEffect } from 'react';
 import { useParams, Link as RouterLink } from 'react-router-dom';
 import { getOrderDetails, payOrderWithPix } from '../api/orderService';
 
-// Nossos componentes e ícones
+
 import { Button } from '../components/common/Button';
 import { Input } from '../components/common/Input';
 import { 
@@ -94,7 +94,7 @@ export default function OrderPage() {
         );
     }
     
-    // Formatação de valores monetários
+    
     const formatCurrency = (value) => {
         const numValue = parseFloat(String(value || '0').replace(',', '.'));
         return numValue.toLocaleString('pt-BR', {

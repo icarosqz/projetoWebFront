@@ -1,4 +1,4 @@
-// src/components/common/Input.jsx
+
 import React from 'react';
 
 const Input = React.forwardRef(({ className, type, ...props }, ref) => {

@@ -1,8 +1,8 @@
-// src/api/carrinhoService.js
+
 import apiClient from './api';
 
 export const getCartItems = async () => {
-  // ... (todo o resto do seu código original)
+  
   try {
     const response = await apiClient.get('/api/v1/carrinho');
     return response.data;
@@ -15,7 +15,7 @@ export const getCartItems = async () => {
 export const addItemToCart = async (productId, quantity = 1) => {
   try {
     const response = await apiClient.post('/api/v1/carrinho/itens', {
-      produto_id: productId,  // Deveria ser um número
+      produto_id: productId,  
       quantidade: quantity,
     });
     return response.data;

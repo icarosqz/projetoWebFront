@@ -1,4 +1,4 @@
-// src/components/products/ProductImageGallery.jsx
+
 import { useState, useEffect, useMemo } from 'react';
 
 export default function ProductImageGallery({ images = [] }) {

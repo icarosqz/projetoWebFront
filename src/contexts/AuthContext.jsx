@@ -1,22 +1,22 @@
-// src/contexts/AuthContext.jsx
+
 "use client";
 
 import { createContext, useState, useContext, useEffect, useCallback } from 'react';
-import apiClient from '../api/api'; // ATENÇÃO: Caminho atualizado
-import { loginUser, registerUser } from '../api/authService'; // ATENÇÃO: Caminho atualizado
-import { useNavigate } from 'react-router-dom'; // ATENÇÃO: Trocamos useRouter por useNavigate
+import apiClient from '../api/api'; 
+import { loginUser, registerUser } from '../api/authService'; 
+import { useNavigate } from 'react-router-dom'; 
 
 const AuthContext = createContext(undefined);
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const navigate = useNavigate(); // Hook do react-router-dom
+  const navigate = useNavigate(); 
 
   const logout = useCallback(() => {
     setUser(null);
     localStorage.removeItem('accessToken');
-    navigate('/login'); // Usa navigate para redirecionar
+    navigate('/login'); 
     setIsLoading(false);
   }, [navigate]);
 
@@ -42,13 +42,13 @@ export function AuthProvider({ children }) {
       setUser(loggedInUser);
 
       if (loggedInUser.tipo === 'vendedor' && !loggedInUser.loja) {
-        navigate('/loja/cadastrar'); // Usa navigate
+        navigate('/loja/cadastrar'); 
       } else {
-        navigate('/'); // Usa navigate
+        navigate('/'); 
       }
     } catch (error) {
       console.error("Falha no login", error);
-      // Em vez de alert, vamos propagar o erro para a UI tratar
+      
       throw new Error("Email ou senha inválidos.");
     }
   }, [navigate]);
@@ -57,7 +57,7 @@ export function AuthProvider({ children }) {
     try {
       await registerUser(dados);
       alert('Cadastro realizado! Por favor, verifique seu e-mail para ativar sua conta.');
-      navigate('/login'); // Usa navigate
+      navigate('/login'); 
     } catch (error) {
       console.error("Falha no cadastro", error);
       alert('Não foi possível realizar o cadastro. Verifique os dados.');

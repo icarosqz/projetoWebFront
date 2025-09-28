@@ -6,7 +6,7 @@ import SideBar from './SideBar';
 export default function Layout() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
-  // Detecta mudanças no tamanho da tela
+  
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);

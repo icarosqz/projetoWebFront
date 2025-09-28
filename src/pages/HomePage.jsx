@@ -1,8 +1,8 @@
-// src/pages/HomePage.jsx
+
 import { useState, useEffect } from 'react';
 import { getProducts } from '../api/productService';
 import ProductCard from '../components/products/ProductCard';
-import { LoaderCircle, AlertTriangle } from 'lucide-react'; // Ícones para feedback
+import { LoaderCircle, AlertTriangle } from 'lucide-react'; 
 
 export default function HomePage() {
     const [products, setProducts] = useState([]);

@@ -1,9 +1,9 @@
-// src/pages/OrdersListPage.jsx
+
 import { useState, useEffect } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { getMyOrders } from '../api/orderService';
 
-// Nossos componentes e ícones
+
 import { Button } from '../components/common/Button';
 import { Input } from '../components/common/Input';
 import { 
@@ -17,7 +17,7 @@ export default function OrdersListPage() {
     const [error, setError] = useState(null);
     const [filterStatus, setFilterStatus] = useState('');
     const [searchTerm, setSearchTerm] = useState('');
-    const [sortOrder, setSortOrder] = useState('desc'); // desc = mais recente primeiro
+    const [sortOrder, setSortOrder] = useState('desc'); 
 
     useEffect(() => {
         const fetchOrders = async () => {
@@ -95,9 +95,9 @@ export default function OrdersListPage() {
             const dateB = new Date(b.data_criacao || 0);
             
             if (sortOrder === 'desc') {
-                return dateB - dateA; // Mais recente primeiro
+                return dateB - dateA; 
             } else {
-                return dateA - dateB; // Mais antigo primeiro
+                return dateA - dateB; 
             }
         });
 

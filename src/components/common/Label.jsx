@@ -1,4 +1,4 @@
-// src/components/common/Label.jsx
+
 import React from 'react';
 
 const Label = React.forwardRef(({ className, ...props }, ref) => (

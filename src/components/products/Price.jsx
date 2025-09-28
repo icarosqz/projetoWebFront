@@ -1,4 +1,4 @@
-// src/components/products/Price.jsx
+
 export default function Price({ currentPrice, originalPrice }) {
   const hasDiscount = originalPrice && parseFloat(originalPrice) > parseFloat(currentPrice);
   const formattedCurrentPrice = Number(currentPrice).toFixed(2).replace('.', ',');

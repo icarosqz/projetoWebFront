@@ -10,7 +10,7 @@
   --popover: 0 0% 100%;
   --popover-foreground: 222.2 84% 4.9%;
   
-  /* Cores primárias modificadas para laranja */
+ 
   --primary: 25 95% 53%;
   --primary-foreground: 0 0% 100%;
   
@@ -50,7 +50,7 @@
   --ring: 25 95% 53%;
 }
 
-/* Adicionar classes personalizadas para a sidebar */
+
 @media (max-width: 768px) {
   .sidebar-container {
     z-index: 50;

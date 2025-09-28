@@ -1,4 +1,4 @@
-// src/api/productService.js
+
 import apiClient from './api';
 
 /**

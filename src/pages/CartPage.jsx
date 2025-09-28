@@ -40,13 +40,13 @@ export default function CartPage() {
         estado: ''
     });
 
-    // --- Buscar endereços ---
+    
     const fetchAddresses = useCallback(async () => {
         try {
             const data = await getMyAddresses();
             setAddresses(data || []);
             
-            // Se tiver endereços e nenhum selecionado, seleciona o primeiro
+            
             if (data?.length > 0 && !selectedAddress) {
                 setSelectedAddress(data[0].id);
                 handleAddressChange({target: {value: data[0].id}});
@@ -60,7 +60,7 @@ export default function CartPage() {
         fetchAddresses();
     }, [fetchAddresses]);
 
-    // --- Salvar novo endereço ---
+    
     const handleSaveAddress = async (e) => {
         e.preventDefault();
         try {
@@ -75,7 +75,7 @@ export default function CartPage() {
         }
     };
 
-    // --- Mudança nos campos ---
+    
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setAddressFormData(prev => ({
@@ -84,7 +84,7 @@ export default function CartPage() {
         }));
     };
 
-    // --- Preencher automático pelo CEP ---
+    
     const handleCepBlur = async (e) => {
         const cep = e.target.value.replace(/\D/g, '');
         if (cep.length !== 8) return;
@@ -106,7 +106,7 @@ export default function CartPage() {
         }
     };
 
-    // --- Selecionar endereço e calcular frete ---
+    
     const handleAddressChange = async (e) => {
         const addressId = e.target.value;
         setSelectedAddress(addressId);
@@ -119,7 +119,7 @@ export default function CartPage() {
             const options = await calculateShipping(addressId);
             setShippingOptions(options || []);
             
-            // Se houver apenas uma opção, seleciona automaticamente
+            
             if (options && options.length === 1) {
                 setSelectedShipping(options[0]);
             }
@@ -131,7 +131,7 @@ export default function CartPage() {
         }
     };
 
-    // --- Checkout revisado ---
+    
     const handleCheckout = async () => {
         if (!selectedAddress || !selectedShipping) {
             alert("Por favor, selecione um endereço e uma opção de frete.");
@@ -143,16 +143,16 @@ export default function CartPage() {
         try {
             const shippingValue = parseFloat(selectedShipping.valor);
             
-            // Validando os dados antes de enviar
+            
             if (isNaN(shippingValue) || !selectedAddress) {
                 throw new Error("Dados de endereço ou frete inválidos");
             }
             
             const newOrder = await createOrderFromCart(selectedAddress, shippingValue);
             
-            // Verifica se o pedido tem ID válido
+            
             if (newOrder && newOrder.id) {
-                // Limpa o carrinho após sucesso no pedido
+                
                 clearCart();
                 navigate(`/pedidos/${newOrder.id}`);
             } else {
@@ -169,7 +169,7 @@ export default function CartPage() {
     const shippingCost = selectedShipping ? parseFloat(selectedShipping.valor) : 0;
     const total = subtotal + shippingCost;
 
-    // --- Loading do carrinho ---
+    
     if (isLoading) {
         return (
             <div className="flex justify-center items-center h-64 p-8">
@@ -178,7 +178,7 @@ export default function CartPage() {
         );
     }
 
-    // --- Carrinho vazio ---
+    
     if (cartCount === 0) {
         return (
             <div className="flex flex-col items-center justify-center gap-6 text-center py-20 px-4 max-w-lg mx-auto">
@@ -196,7 +196,7 @@ export default function CartPage() {
             </div>
         );
     }
-    // --- Página do carrinho ---
+    
     return (
         <div className="container px-4 py-8 mx-auto max-w-7xl">
             <h1 className="text-3xl font-bold tracking-tight mb-8 text-center md:text-left">

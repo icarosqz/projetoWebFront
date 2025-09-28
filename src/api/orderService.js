@@ -1,4 +1,4 @@
-// src/api/orderService.js
+
 import apiClient from './api';
 
 /**
@@ -6,7 +6,7 @@ import apiClient from './api';
  */
 export const calculateShipping = async (addressId) => {
   try {
-    // Alterando para POST como estava no código original
+    
     const response = await apiClient.post(`/api/v1/pedidos/frete/calcular?endereco_entrega_id=${addressId}`);
     return response.data;
   } catch (error) {

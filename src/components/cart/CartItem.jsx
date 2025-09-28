@@ -6,12 +6,12 @@ export default function CartItem({ item }) {
     const { removeItem, updateQuantity } = useCart();
     const baseUrl = import.meta.env.VITE_API_BASE_URL || '';
 
-    // Tratamento de URL de imagem com fallback
+    
     const imageUrl = item.produto?.imagens?.[0]?.url_imagem
       ? `${baseUrl}${item.produto.imagens[0].url_imagem}`
       : "/img/placeholder.png";
 
-    // Manipulação da quantidade com validação
+    
     const handleQuantityChange = (e) => {
         const newQuantity = parseInt(e.target.value, 10);
         if (!isNaN(newQuantity)) {
@@ -19,7 +19,7 @@ export default function CartItem({ item }) {
         }
     };
     
-    // Calcular o preço com validação para evitar NaN
+    
     const itemPrice = parseFloat(item.produto?.preco || 0);
     const itemQuantity = parseInt(item.quantidade || 0, 10);
     const itemTotal = itemPrice * itemQuantity;

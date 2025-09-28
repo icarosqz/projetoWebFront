@@ -1,4 +1,4 @@
-// src/components/cart/ShippingCalculator.jsx
+
 import { useState, useEffect } from 'react';
 import { getMyAddresses } from '../../api/addressService';
 import { calculateShipping } from '../../api/orderService';

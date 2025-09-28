@@ -1,4 +1,4 @@
-// src/components/products/ProductCard.jsx
+
 import { Link as RouterLink } from 'react-router-dom';
 import { useCart } from '../../contexts/CartContext';
 import Price from './Price';
@@ -11,7 +11,7 @@ export default function ProductCard({ product }) {
   const handleAddItemToCart = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    addItem(product.id, 1); // envia apenas o ID do produto
+    addItem(product.id, 1); 
   };
 
   const baseUrl = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '');

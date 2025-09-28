@@ -1,4 +1,4 @@
-// src/pages/ProductDetailPage.jsx
+
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getProductById } from '../api/productService';
@@ -6,7 +6,7 @@ import ProductImageGallery from '../components/products/ProductImageGallery';
 import Price from '../components/products/Price';
 import { useCart } from '../contexts/CartContext';
 
-// Nossos componentes e ícones
+
 import { Button } from '../components/common/Button';
 import { 
   LoaderCircle, 
@@ -43,7 +43,7 @@ export default function ProductDetailPage() {
         setLoading(true);
         const data = await getProductById(id);
         setProduct(data);
-        // Resetar quantidade quando mudar de produto
+        
         setQuantity(1);
       } catch (err) {
         setError('Produto não encontrado ou erro ao carregar.');
@@ -54,7 +54,7 @@ export default function ProductDetailPage() {
     };
 
     fetchProduct();
-    // Rolar para o topo ao carregar um novo produto
+    
     window.scrollTo(0, 0);
   }, [id]);
 

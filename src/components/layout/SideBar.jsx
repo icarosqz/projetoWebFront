@@ -13,7 +13,7 @@ export default function Sidebar({ isOpen, onClose }) {
     const { isAuthenticated, user, logout } = useAuth();
     const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
     
-    // Detectar mudanças no tamanho da tela
+    
     useEffect(() => {
         const handleResize = () => {
             const mobile = window.innerWidth < 768;
@@ -25,15 +25,15 @@ export default function Sidebar({ isOpen, onClose }) {
         return () => window.removeEventListener('resize', handleResize);
     }, [isOpen, onClose]);
 
-    // Estilo condicional para mobile ou desktop
+    
     const sidebarClass = isMobile
         ? `fixed inset-y-0 left-0 z-30 w-64 transform bg-white shadow-lg transition-transform duration-300 ${isOpen ? 'translate-x-0' : '-translate-x-full'} md:hidden`
         : 'hidden md:block w-64 bg-white shadow-md';
 
-    // Overlay para fechar o menu em mobile
+    
     const overlayClass = `fixed inset-0 z-20 bg-black/50 transition-opacity duration-300 ${isMobile && isOpen ? 'opacity-100' : 'pointer-events-none opacity-0'}`;
 
-    // Links da sidebar
+    
     const links = [
         { to: '/', icon: <Home />, label: 'Início' },
         { to: '/carrinho', icon: <ShoppingCart />, label: 'Carrinho' },

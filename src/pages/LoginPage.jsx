@@ -1,10 +1,10 @@
-// src/pages/LoginPage.jsx
+
 import { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate, Link as RouterLink } from 'react-router-dom';
-import { Lock } from 'lucide-react'; // Ícone do Lucide
+import { Lock } from 'lucide-react'; 
 
-// Nossos componentes customizados
+
 import { Button } from '../components/common/Button';
 import { Input } from '../components/common/Input';
 import { Label } from '../components/common/Label';

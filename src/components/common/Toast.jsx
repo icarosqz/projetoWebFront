@@ -1,9 +1,9 @@
-// src/components/common/Toast.jsx
+
 import { motion } from 'framer-motion';
 import { X, CheckCircle } from 'lucide-react';
 
 export function Toast({ message, onClose, type = 'success', duration = 3000 }) {
-  // Fecha automaticamente após a duração definida
+  
   React.useEffect(() => {
     const timer = setTimeout(onClose, duration);
     return () => clearTimeout(timer);
